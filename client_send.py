@@ -161,7 +161,7 @@ def start():
 
 
 def main():
-    ADDR = input("Digite o ip do servidor: "), input("Digite a porta do servidor: ")
+    ADDR = input("Digite o ip do servidor: "), int(input("Digite a porta do servidor: "))
     client = Client(ADDR)
     client.start()
     name = " "
