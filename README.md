@@ -1,2 +1,2 @@
 # mychatpy
-python chat app
+#DISCORDNASCEUPRAMORRER
