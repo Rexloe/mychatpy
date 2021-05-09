@@ -65,7 +65,7 @@ class InputOutputClient:
             if "/quit" in msgreceive:
                 self.client.s.close()
                 print("\n\n[LOCAL]: you left\n\n")
-                time.sleep()
+                time.sleep(10)
                 os._exit(1)
                 
             if len(msgreceive) >= 1:
