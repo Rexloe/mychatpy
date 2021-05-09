@@ -35,8 +35,8 @@ class InputOutputClient:
                 "/help - mostra essa tela\n" "NÃO FOI ADICIONADO /game {pessoa} - um jogo de duas pessoas\n" 
                 "/color {cor} {mensagem} - mostra uma mensagem com a cor escrita (obs: os nomes das cores só podem ser escritos em ingles\n"
                 "e caso voce queria uma cor mais brilhante adicione l para o nome da cor, deste jeito: lred)\n"
-                "/colorname {cor} - muda a cor do seu nome, as cores funcionam do mesmo jeito do /color\n"
-                "/setname {nome} - muda de nome, com os mesmo critério de antes: não pode ter espaços\n\n")
+                "/colorname {cor} - muda a cor do seu nome, as cores funcionam do mesmo jeito do /color\n")
+                #"/setname {nome} - muda de nome, com os mesmo critério de antes: não pode ter espaços\n\n")
                 screenclr()
                 print(self.buffer)
                 print("Digite: ", end='')
@@ -64,7 +64,8 @@ class InputOutputClient:
 
             if "/quit" in msgreceive:
                 self.client.s.close()
-                print()
+                print("\n\n[LOCAL]: you left\n\n")
+                time.sleep()
                 os._exit(1)
                 
             if len(msgreceive) >= 1:
@@ -160,7 +161,7 @@ def start():
 
 
 def main():
-    ADDR = "192.168.1.104", 5050
+    ADDR = input("Digite o ip do servidor: "), input("Digite a porta do servidor: ")
     client = Client(ADDR)
     client.start()
     name = " "

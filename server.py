@@ -153,7 +153,7 @@ def main() -> None:
     admcomhis: list = list()
     buffer: str = str()
 
-    ADDR = "192.168.1.104", 5050
+    ADDR = input("Digite o ip que o servidor está: "), input("Digite a porta que o ip está: ")
 
     serverio = InputOutputServer(ADDR, buffer)
 

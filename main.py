@@ -4,11 +4,9 @@ import time
 import colorama
 import random
 import datetime
-import queue
 import os
 import traceback
 
-from dataclasses import dataclass
 from abc import ABC, abstractmethod
 
 
@@ -102,12 +100,12 @@ class Server(Connection):
                 self.send(left_server)
 
     def send(self, msg):
-        #try:
-        for j, i in enumerate(Server.client_list):
-            i.send_client(msg)
-        #except Exception as e:
-            #self.server_output_setter(str(traceback.format_exc()) + '\n')
-            #self.delete_client(i.name, i.addr)
+        try:
+            for j, i in enumerate(Server.client_list):
+                i.send_client(msg)
+        except Exception as e:
+            self.server_output_setter(str(traceback.format_exc()) + '\n')
+            self.delete_client(i.name, i.addr)
 
 class ClientHandle(Server):
     def __init__(self, conn, addr, name):
@@ -151,7 +149,7 @@ class Chat(Server):
 
         self.USER_COMMANDS: dict = {
                                     "/quit": 1, 
-                                    "/setname": 2,
+                                    #"/setname": 2,
                                     "/color": 3, 
                                     "/list": 4,
                                     "/togchance": 5, 
